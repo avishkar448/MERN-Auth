@@ -10,14 +10,25 @@ const app = express();
 const port = process.env.PORT || 4000;
 connectDB();
 
-const allowedOrigins = ["https://iridescent-otter-c01291.netlify.app"];
+const allowedOrigins = ["https://iridescent-otter-c01291.netlify.app/"];
 //const allowedOrigins=['http://localhost:5173']
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-  cors({ origin: allowedOrigins, methods: ["POST", "GET"], credentials: true })
+  cors({ origin: allowedOrigins,  credentials: true })
 );
+
+// define __dirname for ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//static file
+app.use(express.static(path.join(__dirname, "./client/dist")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 //api
 app.get("/", (req, res) => res.send("API Working Fine"));
