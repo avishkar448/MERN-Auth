@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 connectDB();
 
-const allowedOrigins = ["https://deluxe-dragon-51cfa9.netlify.app"];
+const allowedOrigins = ["https://mern-auth-project.netlify.app"];
 //const allowedOrigins=['http://localhost:5173']
 
 app.use(express.json());
