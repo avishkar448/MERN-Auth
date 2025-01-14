@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
-import path from 'path'
+import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
@@ -17,9 +17,7 @@ const allowedOrigins = ["https://mern-auth-project.netlify.app"];
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({ origin: allowedOrigins,  credentials: true })
-);
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 // app.use(cors())
 
 // define __dirname for ES module
