@@ -3,7 +3,8 @@ import userModel from "../models/userModel.js";
 export const getUserData= async(req,res)=>{ 
 
     try {
-        const {userId} = req.body;
+        const {userId} = req.userId;
+        // const {userId} = req.body;
 
         const user= await userModel.findById(userId)
 
