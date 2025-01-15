@@ -17,7 +17,7 @@ const allowedOrigins = ["https://mern-auth-project.netlify.app"];
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: "https://mern-auth-project.netlify.app", credentials: true }));
 // app.use(cors())
 
 // define __dirname for ES module

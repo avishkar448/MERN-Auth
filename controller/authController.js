@@ -35,12 +35,13 @@ export const register = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true, // Ensures cookies are sent over HTTPS
-      sameSite: "None", // Allows cross-origin requests
+      // secure: true, // Ensures cookies are sent over HTTPS
       secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      sameSite: "None", // Allows cross-origin requests
+      // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+    console.log("Cookie set successfully");
 
     //welcome email
     const mailOptions = {
@@ -101,9 +102,10 @@ export const login = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: "None", // Allows cross-origin requests
       // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-      path:'/',
+      // path:'/',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+    console.log("Cookie set successfully");
 
     return res.json({
       success: true,
